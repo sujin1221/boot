@@ -2,27 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <th:block th:replace="~{layout :: setFragment(~{this::content})}">
 	<th:block th:fragment="content">
+	<br>
 		<h2>Board Register Page</h2>
-
+	<br>
 		<form action="/board/register" method="post">
 			<div class="mb-3">
-				<label for="exampleFormControlInput1" class="form-label">Title</label> 
-				<input type="email" class="form-control"
-					id="exampleFormControlInput1" placeholder="name@example.com">
+				<label for="title" class="form-label">Title</label> 
+				<input type="text" class="form-control" name="title"
+					id="exampleFormControlInput1" placeholder="title">
 			</div>
 			<div class="mb-3">
-				<label for="exampleFormControlInput1" class="form-label">Writer</label> 
-				<input type="email" class="form-control"
-					id="exampleFormControlInput1" placeholder="name@example.com">
+				<label for="writer" class="form-label">Writer</label> 
+				<input type="text" class="form-control" name="writer"
+					id="exampleFormControlInput1" placeholder="writer">
 			</div>
 			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label">Content</label>
-				<textarea class="form-control" id="exampleFormControlTextarea1"
+				<label for="content" class="form-label">Content</label>
+				<textarea class="form-control" id="content" name="content"
 					rows="3"></textarea>
 			</div>
+	<button type="submit">register</button>
 		</form>
 
-	
 
 	</th:block>
 </th:block>
+</html>
