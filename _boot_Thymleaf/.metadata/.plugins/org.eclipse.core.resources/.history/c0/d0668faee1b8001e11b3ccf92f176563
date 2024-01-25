@@ -1,5 +1,0 @@
-package com.thymleaf.thymleaf.domain;
-
-public class SampleDTO {
-	private String p1, p2, p3;
-}
