@@ -1,0 +1,7 @@
+package com.example.demo.handler;
+
+public class PagingHandler {
+	private int startPage;
+	private int endPage;
+	private boolean prev, next; 
+}

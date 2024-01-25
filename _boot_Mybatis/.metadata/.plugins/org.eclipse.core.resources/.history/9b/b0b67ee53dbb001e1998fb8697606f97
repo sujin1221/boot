@@ -1,0 +1,9 @@
+package com.example.demo.controller;
+
+@RequiredArgsConstructor
+@Slf4j
+@RequestMapping("/comment/*")
+@RestController
+public class CommentController {
+	
+}

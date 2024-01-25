@@ -1,0 +1,5 @@
+package com.thymleaf.thymleaf.domain;
+
+public class SampleDTO {
+	
+}

@@ -1,0 +1,10 @@
+package com.example.demo.service;
+
+import org.springframework.stereotype.Service;
+
+@RequiredArgsConstructor
+@Slf4j
+@Service
+public class CommentServiceImpl implements CommentService{
+	
+}

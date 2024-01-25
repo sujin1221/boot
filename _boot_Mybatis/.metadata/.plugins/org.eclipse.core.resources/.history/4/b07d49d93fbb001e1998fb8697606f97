@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout :: setFragment(~{this::content})}">
+<th:block th:fragment="content">
+
+<br>
+<h3>Board Detail Page</h3>
+<br>
+
+<div class="container-md" th:object="${bvo}">
+    <div class="mb-3">
+        <label for="bno" class="form-label">#</label>        
+        <input type="text" th:field="*{bno}" class="form-control" id="bno" readonly="readonly">
+    </div>
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" th:field="*{title}" class="form-control" id="title" placeholder="writer" readonly="readonly">
+    </div>
+    <div class="mb-3">
+        <label for="writer" class="form-label">Writer</label>
+        <input type="text" th:field="*{writer}" class="form-control" id="writer" readonly="readonly">
+    </div>
+    <div class="mb-3">
+        <label for="modAt" class="form-label">modAt</label>
+        <input type="text" th:field="*{modAt}" class="form-control" id="modAt" readonly="readonly">
+    </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">Content</label>
+        <textarea class="form-control" th:field="*{content}" id="content" rows="3" readonly="readonly"></textarea>
+    </div>
+</div>
+
+<!-- 댓글 라인 -->
+<!-- 댓글 등록 라인 -->
+		<div class="container-sm">
+			<div class="input-group mb-3">
+				<span class="input-group-text" id="cmtWriter">Anonymous</span> <input
+					type="text" class="form-control" id="cmtText"
+					placeholder="Test add Comment..." aria-label="Username"
+					aria-describedby="basic-addon1">
+				<button type="button" id="cmtPostBtn" class="btn btn-success">등록</button>
+			</div>
+
+			<!-- 댓글 표시라인 -->
+			<ul class="list-group list-group-flush" id="cmtListArea">
+				<li class="list-group-item">
+					<div class="mb-3">
+						<div class="fw-bold">Writer</div>
+						content
+					</div> 
+					<span class="badge text-bg-primary">modAt</span>
+				</li>
+			</ul>
+		</div>
+
+		<br>
+<a th:href="@{/board/list}"><button type="button" class="btn btn-primary">List</button></a>
+<a th:href="@{/board/modify(bno=${bvo.bno})}"><button type="button" class="btn btn-success">modify</button></a>
+<a th:href="@{/board/delete(bno=${bvo.bno})}"><button type="button" class="btn btn-danger">delete</button></a>
+<br>
+<hr>
+
+<!--
+*js로 경로 이동하는 방법:
+<form action="/board/remove" method="post" id="delForm" style="display:none;">
+<input type="hidden" name="bno" th:value="${bvo.bno}">
+
+<button type="button" class="btn btn-primary" id="listBtn">List</button></a>
+* detail page에서 modify 상태로 변경하기 위한 버튼:
+<button type="button" class="btn btn-success" id="modBtn">modify</button></a>
+* 버튼하나를 생성하여 수정을 완료하는 버튼으로 사용:
+js에서 생성
+<button type="button" class="btn btn-danger" id="delBtn">delete</button></a>
+</form>
+ -->
+<script th:src="@{/js/boardDetail.js}"></script>
+</th:block>
+</th:block>
+<script th:inline="javascript">
+    var isRe = '[[${isMod}]]';
+    
+    if (isRe === '1') {
+        alert("게시글이 수정되었습니다.");
+    }
+</script>
+
+</html>

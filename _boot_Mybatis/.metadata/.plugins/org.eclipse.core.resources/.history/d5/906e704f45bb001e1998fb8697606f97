@@ -1,0 +1,12 @@
+package com.example.demo.repogitory;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.example.demo.domain.CommentVO;
+
+@Mapper
+public interface CommentMapper {
+
+	int insertPost(CommentVO cvo);
+
+}
